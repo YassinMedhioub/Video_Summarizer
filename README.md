@@ -64,13 +64,16 @@ VideoMind AI is a modern React application that leverages the multimodal capabil
 
 ### Analysis Dashboard
 The main view providing the summary, sentiment, and key points immediately after processing.
+
 ![Dashboard](./assets/summary.png)
 
 ### Full Transcript View
 Read the complete generated transcript with formatted text.
+
 ![Transcript](./assets/full_transcript.png)
 
 ### The "Magic" Polyglot File
 One file, multiple formats.
+
 ![Polyglot File](./assets/polyglot.png)
 
