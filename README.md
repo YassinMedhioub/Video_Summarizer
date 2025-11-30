@@ -1,79 +1,104 @@
-# VideoMind AI 🧠🎥
+# Polyglot Generator 🧩📁
 
-**Next-generation video intelligence tool powered by Google Gemini 2.5.**
+**Create universal polyglot media files by combining videos, images, PDFs, HTML, and ZIPs into a single downloadable file.**
 
-VideoMind AI is a modern React application that leverages the multimodal capabilities of Google's Gemini 2.5 Flash model to instantly analyze video content. It extracts verbatim transcripts, generates executive summaries, creates key takeaways, and analyzes sentiment—all entirely in the browser.
+Polyglot Generator is a modern React + Bun web application that lets you upload a video/audio file and an image, optionally attach PDFs, HTML, ZIPs, or small extra files, and generate a **single polyglot file**. This file can act as a video, image, PDF, HTML page, or ZIP archive depending on its extension.
 
-![VideoMind AI Preview](./assets/user_interface.png)
+![Polyglot Generator Preview](./assets/user_interface.png)
+
+---
 
 ## ✨ Key Features
 
-- **⚡ Instant Analysis**: Drag and drop any video file to get immediate insights.
-- **📝 Verbatim Transcription**: Accurate speech-to-text extraction using Gemini's native audio understanding.
-- **📊 Smart Summarization**: Abstractive summaries that capture the essence of the content.
-- **🎯 Key Takeaways**: Bullet-point highlights of the most important information.
-- **😊 Sentiment Analysis**: Detects the emotional tone of the video (Positive, Neutral, Negative).
-- **🪄 Polyglot "Magic" File**: Download a single universal file that functions as:
-  - A **Video** (MP4) when played in a media player.
-  - A **ZIP Archive** (containing PDF reports & transcripts) when renamed to `.zip`.
-  - A **PDF Document** (experimental) when renamed to `.pdf`.
+- **⚡ Instant Polyglot Generation**: Upload video/audio and an image to create a universal file.
+- **🖼️ Image Embedding**: Convert images into an ICO container included in the polyglot.
+- **📜 PDF Integration**: Include PDF files with automatic offset adjustment.
+- **🌐 HTML Support**: Add web pages inside the polyglot for browser display.
+- **📞 ZIP Merging**: Merge multiple ZIP-like archives into the final polyglot file.
+- **🧩 Polyglot “Magic” File**: A single file that behaves as:
+  - **Video** (MP4) when played in a media player  
+  - **Image** (ICO) when viewed as an icon  
+  - **HTML Page** when renamed `.html`  
+  - **PDF** when renamed `.pdf`  
+  - **ZIP Archive** when renamed `.zip`  
+
+---
 
 ## 🚀 How It Works
 
-1. **Upload**: Select a video file (MP4, WebM, MOV, etc.).
-2. **Process**: The app converts the video to a base64 stream and sends it to the **Gemini 2.5 Flash** model via the Google GenAI SDK.
-3. **Analyze**: Gemini processes the visual and audio data simultaneously to generate structured JSON output.
-4. **Export**: The app generates a PDF report and bundles it with the original video using advanced binary offset patching (Polyglot injection), creating a single file that works in multiple formats.
+1. **Upload Files**: Select your video/audio, image, and optional HTML, PDF, ZIP, or extra files.  
+2. **Process**: The backend (Bun + `beheader.js`) converts videos to MP4, images to PNG in ICO containers, and merges optional files.  
+3. **Generate Polyglot**: The script manipulates file headers, inserts offsets, and merges ZIPs to produce a single universal file.  
+4. **Download**: The generated polyglot file can be used as multiple formats depending on its extension.  
 
-## 🛠️ Tech Stack
+---
 
-- **Frontend**: React 18, TypeScript, Vite
-- **Styling**: Tailwind CSS
-- **AI Model**: Google Gemini 2.5 Flash (`@google/genai`)
-- **Icons**: Lucide React
-- **Utilities**: 
-  - `jspdf` for PDF generation
-  - `jszip` for client-side archiving
+## 🌍 Tech Stack
+
+- **Backend**: Bun, Node.js, Express, Multer  
+- **Frontend**: React 18, Vite  
+- **Styling**: Tailwind CSS  
+- **Utilities**:  
+  - `ffmpeg` and `ffprobe` for video/audio processing  
+  - ImageMagick (`convert`) for image conversion  
+  - `zip/unzip` for ZIP handling  
+  - `mp4edit` for MP4 atom manipulation  
+
+---
 
 ## 📦 Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/videomind-ai.git
-   cd videomind-ai
-   ```
+### Backend
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+```bash
+cd backend
+bun install express multer
+mkdir uploads outputs
+bun run server.js
+```
 
-3. **Set up Environment Variables**
-   Create a `.env` file in the root directory and add your Google Gemini API key:
-   ```env
-   API_KEY=your_google_ai_studio_api_key
-   ```
-   > Get your API key at [aistudio.google.com](https://aistudio.google.com/)
+> Ensure `beheader.js` and `mp4edit` are in the `backend` folder.
 
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open the URL shown in the console (e.g., `http://localhost:5173`).
+
+---
 
 ## 🖼️ Screenshots
 
-### Analysis Dashboard
-The main view providing the summary, sentiment, and key points immediately after processing.
+### Upload & Generate
+Upload your video/audio and image to start generating the polyglot file.
 
 ![Dashboard](./assets/summary.png)
 
-### Full Transcript View
-Read the complete generated transcript with formatted text.
+### Optional Files
+Attach HTML, PDF, ZIP, or extra files to include in the polyglot.
 
-![Transcript](./assets/full_transcript.png)
+![Files](./assets/full_transcript.png)
 
-### The "Magic" Polyglot File
-One file, multiple formats.
+### Polyglot Output
+One file, multiple formats depending on the extension.
 
 ![Polyglot File](./assets/polyglot.png)
 
+---
+
+## ⚠️ Notes
+
+- Large video/audio files may take time to process.  
+- All dependencies (`ffmpeg`, `convert`, `zip`, `mp4edit`) must be installed on the server.  
+- Temporary files are cleaned automatically after generation.  
+- PDF offset fixing may occasionally fail but usually remains usable.  
+
+---
+
+## License
+
+MIT License © 2025
