@@ -1,0 +1,5 @@
+{
+  "name": "VideoMind AI",
+  "description": "Next-generation video intelligence tool. Extracts audio, generates verbatim transcripts, and creates abstractive summaries using multimodal AI.",
+  "requestFramePermissions": []
+}
