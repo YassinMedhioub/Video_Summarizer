@@ -98,7 +98,3 @@ One file, multiple formats depending on the extension.
 - PDF offset fixing may occasionally fail but usually remains usable.  
 
 ---
-
-## License
-
-MIT License © 2025
