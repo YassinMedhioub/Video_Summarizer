@@ -4,7 +4,7 @@
 
 VideoMind AI is a modern React application that leverages the multimodal capabilities of Google's Gemini 2.5 Flash model to instantly analyze video content. It extracts verbatim transcripts, generates executive summaries, creates key takeaways, and analyzes sentiment—all entirely in the browser.
 
-![VideoMind AI Preview](https://via.placeholder.com/800x450.png?text=VideoMind+AI+Dashboard)
+![VideoMind AI Preview](./assets/user_interface.png)
 
 ## ✨ Key Features
 
@@ -64,16 +64,13 @@ VideoMind AI is a modern React application that leverages the multimodal capabil
 
 ### Analysis Dashboard
 The main view providing the summary, sentiment, and key points immediately after processing.
-![Dashboard](https://via.placeholder.com/600x340.png?text=Analysis+Dashboard)
+![Dashboard](./assets/summary.png)
 
 ### Full Transcript View
 Read the complete generated transcript with formatted text.
-![Transcript](https://via.placeholder.com/600x340.png?text=Transcript+View)
+![Transcript](./assets/full_transcript.png)
 
 ### The "Magic" Polyglot File
 One file, multiple formats.
-![Polyglot File](https://via.placeholder.com/600x340.png?text=Polyglot+File+Explanation)
+![Polyglot File](./assets/polyglot.png)
 
-## 📄 License
-
-MIT License. See [LICENSE](LICENSE) for details.
